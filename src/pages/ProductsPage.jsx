@@ -41,8 +41,9 @@ const ProductsPage = () => {
       .catch((error) => console.log(error.message));
   }, []);
 
-  function handleTabChange() {
-    console.log("in Tabs");
+  function handleTabChange(event, newValue) {
+    setValue(newValue);
+    console.log("in Tabs", newValue);
   }
   return (
     <div>
