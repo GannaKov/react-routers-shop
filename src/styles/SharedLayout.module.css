@@ -1,0 +1,15 @@
+.wrapperSection {
+}
+.headerWrp {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid gray;
+}
+.headerNavList {
+  display: flex;
+  justify-content: space-around;
+}
+.headerNavLink {
+  font-size: 1.3rem;
+  color: green;
+}
