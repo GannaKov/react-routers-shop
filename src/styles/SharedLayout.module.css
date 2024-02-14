@@ -13,3 +13,9 @@
   font-size: 1.3rem;
   color: green;
 }
+.headerNavLink:is(:hover, :focus) {
+  text-decoration: underline;
+}
+/* .headerNavLink.active {
+  color: red;
+} */

@@ -12,3 +12,9 @@ export const getCategories = async () => {
   const { data } = await instance.get("/products/categories");
   return data;
 };
+
+//'https://fakestoreapi.com/products/category/jewelery'
+export const getByCategory = async (category) => {
+  const { data } = await instance.get(`/products/category/${category}`);
+  return data;
+};
