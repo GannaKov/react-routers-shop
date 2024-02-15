@@ -8,7 +8,14 @@ const TabsComponent = ({ handleTabChange, value, categories }) => {
   return (
     <div className={styles.tabsWrp}>
       <Box sx={{ width: "100%", bgcolor: "background.paper" }}>
-        <Tabs value={value} onChange={handleTabChange} centered>
+        <Tabs
+          value={value}
+          onChange={handleTabChange}
+          variant="scrollable"
+          // scrollButtons="auto"
+          scrollButtons
+          allowScrollButtonsMobile
+        >
           {categories.map((category, index) => (
             <Tab key={index} label={category} />
           ))}
