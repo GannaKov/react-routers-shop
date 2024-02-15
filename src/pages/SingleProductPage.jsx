@@ -24,17 +24,13 @@ const SingleProductPage = () => {
       .finally(() => setLoading(false));
   }, [id]);
 
-  const { title, images, price, description, rating, brand } = product;
+  const { title, images, price, description, rating, brand, category } =
+    product;
   return (
     <div>
-      <button onClick={() => navigate(-1)}>
-        {/* <Link
-          to={{
-            pathname: backLinkHref,
-            state: { from: location },
-          }} */}
+      <button onClick={() => navigate("/products")}>
         Back to products
-        {/* </Link> */}
+        {/* <Link to={`products/${category}`}>Back to products</Link> */}
       </button>
 
       {Object.keys(product).length > 0 ? (

@@ -5,6 +5,7 @@ import SharedLayout from "./components/SharedLayout";
 import HomePage from "./pages/HomePage";
 import ProductsPage from "./pages/ProductsPage";
 import SingleProductPage from "./pages/SingleProductPage";
+import SearchPage from "./pages/SearchPage";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
 
         <Route path="/products/:category" element={<ProductsPage />} />
         <Route path="/products/:category/:id" element={<SingleProductPage />} />
+        <Route path="/products/search" element={<SearchPage />} />
         <Route path="/about" element={<AboutPage />} />
 
         <Route path="*" element={<p>Not Found</p>} />

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import ProductsList from "../components/ProductsList";
 // import { getProducts } from "../services/requests";
 import { getCategories } from "../services/requests";
@@ -9,15 +10,21 @@ import Spinner from "../components/Spinner";
 import TabsComponent from "../components/TabsComponent";
 
 const ProductsPage = () => {
-  const { category } = useParams();
+  // const { category } = useParams();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [name, setName] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams("");
+  const queryProduct = searchParams.get("name");
+  console.log("queryProduct", queryProduct);
+
   // const categoryValue = categories.findIndex((value) => value === category);
-  console.log("category 1", category);
-  const categoryValue = categories.findIndex((value) => value === category);
+  // console.log("category 1", category);
+  // const categoryValue = categories.findIndex((value) => value === category);categoryValue !== -1 ? categoryValue : 0
   // console.log("categoryValue ", categoryValue);
   const [loading, setLoading] = useState(false);
-  const [value, setValue] = useState(categoryValue ?? 0);
+  const [value, setValue] = useState(0);
+  const [fetched, setFetched] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,16 +37,10 @@ const ProductsPage = () => {
       .catch((error) => console.log(error.message));
   }, []);
 
-  // useEffect(() => {
-  //   console.log("category in Ef", category);
-  //   const categoryValue = categories.findIndex((value) => value === category);
-  //   setValue(categoryValue);
-  //   console.log("categoryValue", categoryValue);
-  // }, [categories, category]);
-
   useEffect(() => {
+    setFetched(true);
     const category = categories[value];
-    navigate(`/products/${category}`);
+    // navigate(`/products/${category}`);
     setLoading(true);
     getByCategory(category)
       .then((res) => {
@@ -47,11 +48,21 @@ const ProductsPage = () => {
       })
       .catch((error) => console.log(error.message))
       .finally(() => setLoading(false));
-  }, [categories, navigate, value]);
+  }, [categories, value]);
 
   function handleTabChange(_, newValue) {
     //event,
     setValue(newValue);
+    setSearchParams("");
+    setName(""); //Change
+  }
+
+  function handleFormsubmit(e) {
+    e.preventDefault();
+    const nextQuery = name !== "" ? { name } : {};
+    setSearchParams(nextQuery);
+    // console.log("naxt", nextQuery);
+    navigate(`/products/search?name=${name}`);
   }
   return (
     <div>
@@ -63,9 +74,26 @@ const ProductsPage = () => {
         />
       )}
       {loading && <Spinner />}
-
+      <form onSubmit={handleFormsubmit}>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+        />
+        <button type="submit">Search</button>
+      </form>
       <h1>Products</h1>
-      {products.length > 0 && <ProductsList products={products} />}
+      {fetched && (
+        <>
+          {products.length > 0 ? (
+            <ProductsList products={products} />
+          ) : (
+            <p>Nothing</p>
+          )}
+        </>
+      )}
     </div>
   );
 };

@@ -27,3 +27,8 @@ export const getById = async (id) => {
   const { data } = await instance.get(`/products/${id}`);
   return data;
 };
+//'https://dummyjson.com/products/search?q=phone
+export const getByName = async (name) => {
+  const { data } = await instance.get(`/products/search?q=${name}`);
+  return data.products;
+};
