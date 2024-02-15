@@ -11,7 +11,7 @@ const SearchPage = () => {
   const [fetched, setFetched] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams("");
   const queryProduct = searchParams.get("name");
-  console.log("queryProduct", queryProduct);
+
   const navigate = useNavigate();
   useEffect(() => {
     setLoading(true);
