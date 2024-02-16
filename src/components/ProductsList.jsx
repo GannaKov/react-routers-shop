@@ -1,17 +1,22 @@
 /* eslint-disable react/prop-types */
 import { Link, useLocation } from "react-router-dom";
 import ProductCard from "./ProductCard";
+import styles from "../styles/ProductsList.module.css";
 
 const ProductsList = ({ products }) => {
   const location = useLocation();
   // console.log("In Pl", location);
 
   return (
-    <ul>
+    <ul className={styles.productsList}>
       {products.length > 0 ? (
         products.map((product) => (
-          <li key={product.id}>
-            <Link to={`${product.id}`} state={{ from: location }}>
+          <li key={product.id} className={styles.productsItem}>
+            <Link
+              to={`${product.id}`}
+              state={{ from: location }}
+              className={styles.productsLink}
+            >
               <ProductCard product={product} />
             </Link>
           </li>

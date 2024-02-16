@@ -1,15 +1,31 @@
 .cardWrp {
+  border: 1px solid grey;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
 }
 .cardTitle {
+  margin-bottom: 1rem;
 }
 .cardImg {
-  width: 250px;
+}
+.cardBottom {
+  padding: 20px 24px;
+  border-top: 1px black solid;
+
+  /* flex-grow: 1; */
+}
+.cardBrandText {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
 }
 .cardPriceText {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
 }
 .cardDescrText {
 }
 .cardRateText {
-}
-.cardBrandText {
 }

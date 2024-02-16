@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import styles from "../styles/ProductPage.module.css";
 // import ProductsList from "../components/ProductsList";
 // import { getProducts } from "../services/requests";
 import { getCategories } from "../services/requests";
@@ -75,29 +76,30 @@ const ProductsPage = () => {
     navigate(`/products/search?name=${name}`);
   }
   return (
-    <div>
-      <form onSubmit={handleFormsubmit}>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
-        />
-        <button type="submit">Search</button>
-      </form>
-      {categories && (
-        <TabsComponent
-          // handleTabChange={handleTabChange}
-          // value={value}
-          categoryId={categoryId}
-          categories={categories}
-        />
-      )}
+    <section className={styles.bigSection}>
+      <div className={styles.bigContainer}>
+        <form onSubmit={handleFormsubmit}>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
+          <button type="submit">Search</button>
+        </form>
+        {categories && (
+          <TabsComponent
+            // handleTabChange={handleTabChange}
+            // value={value}
+            categoryId={categoryId}
+            categories={categories}
+          />
+        )}
 
-      {/* {loading && <Spinner />} */}
+        {/* {loading && <Spinner />} */}
 
-      {/* <h1>Products</h1>
+        {/* <h1>Products</h1>
       {fetched && (
         <>
           {products.length > 0 ? (
@@ -107,7 +109,8 @@ const ProductsPage = () => {
           )}
         </>
       )} */}
-    </div>
+      </div>
+    </section>
   );
 };
 

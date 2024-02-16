@@ -59,16 +59,20 @@ const TabsComponent = ({ categories, categoryId }) => {
         </Box>
       </div>
       {loading && <Spinner />}
-      <h1>Products</h1>
-      {fetched && (
-        <>
-          {products.length > 0 ? (
-            <ProductsList products={products} />
-          ) : (
-            <p>Nothing</p>
+      <main>
+        <div className={styles.mainContainer}>
+          <h1 className={styles.mainTitle}>Products</h1>
+          {fetched && (
+            <>
+              {products.length > 0 ? (
+                <ProductsList products={products} />
+              ) : (
+                <p>Nothing</p>
+              )}
+            </>
           )}
-        </>
-      )}
+        </div>
+      </main>
     </>
   );
 };

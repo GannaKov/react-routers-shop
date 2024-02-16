@@ -1,0 +1,25 @@
+.bigSection {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+@media screen and (min-width: 768px) {
+  .bigSection {
+  }
+}
+@media screen and (min-width: 1304px) {
+  .bigSection {
+  }
+}
+.bigContainer {
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .bigContainer {
+    padding: 0 2rem;
+  }
+}
+@media screen and (min-width: 1304px) {
+  .bigContainer {
+    width: 1240px;
+  }
+}
