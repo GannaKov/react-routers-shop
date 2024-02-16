@@ -5,7 +5,6 @@ import styles from "../styles/ProductsList.module.css";
 
 const ProductsList = ({ products }) => {
   const location = useLocation();
-  // console.log("In Pl", location);
 
   return (
     <ul className={styles.productsList}>

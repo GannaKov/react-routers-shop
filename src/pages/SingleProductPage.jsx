@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { Link, useLocation } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import { getById } from "../services/requests";
 import styles from "../styles/SingleProduct.module.css";
@@ -11,10 +10,9 @@ const SingleProductPage = () => {
   const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState({});
   const [fetched, setFetched] = useState(false);
-  // const navigate = useNavigate();
+
   const location = useLocation();
   const backLinkHref = location.state?.from ?? "/products";
-  // console.log("location.state?.from?.pathname", location.state?.from?.pathname);
 
   useEffect(() => {
     setLoading(true);
@@ -32,9 +30,6 @@ const SingleProductPage = () => {
   return (
     <div>
       <button>
-        {/* //onClick={() => navigate("/products")}> */}
-        {/* Back to products */}
-        {/* <Link to={`products/${category}`}>Back to products</Link> */}
         <Link to={backLinkHref}>Back to products</Link>
       </button>
       {loading && <Spinner />}

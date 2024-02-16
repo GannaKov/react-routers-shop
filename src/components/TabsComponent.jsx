@@ -10,7 +10,6 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
 const TabsComponent = ({ categories, categoryId }) => {
-  //handleTabChange, value,
   const navigate = useNavigate();
   const [value, setValue] = useState(categoryId);
   const [products, setProducts] = useState([]);
@@ -27,7 +26,6 @@ const TabsComponent = ({ categories, categoryId }) => {
     if (categories.length > 0) {
       if (path === "/products") {
         navigate(`/products/${categories[categoryId]}`);
-        console.log("kuku");
       }
     }
 
@@ -41,7 +39,7 @@ const TabsComponent = ({ categories, categoryId }) => {
       })
       .catch((error) => console.log(error.message))
       .finally(() => setLoading(false));
-  }, [categories, value]);
+  }, [categories, categoryId, navigate, path, value]);
 
   function handleTabChange(_, newValue) {
     //event,

@@ -2,7 +2,7 @@
 import styles from "../styles/ProductCard.module.css";
 
 const ProductCard = ({ product }) => {
-  const { title, images, price, description, rating, brand } = product;
+  const { title, images, price, rating, brand } = product;
 
   return (
     <div className={styles.cardWrp}>
