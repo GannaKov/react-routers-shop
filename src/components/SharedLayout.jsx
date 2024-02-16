@@ -10,10 +10,14 @@ const SharedLayout = () => {
             <li>
               <NavLink
                 to="/"
-                className={styles.headerNavLink}
-                style={({ isActive }) => ({
-                  color: isActive ? "red" : "green",
-                })}
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles.active} ${styles.headerNavLink}`
+                    : `${styles.headerNavLink}`
+                }
+                // style={({ isActive }) => ({
+                //   color: isActive ? "red" : "green",
+                // })}
               >
                 Home
               </NavLink>
@@ -21,10 +25,11 @@ const SharedLayout = () => {
             <li>
               <NavLink
                 to="/products"
-                className={styles.headerNavLink}
-                style={({ isActive }) => ({
-                  color: isActive ? "red" : "green",
-                })}
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles.active} ${styles.headerNavLink}`
+                    : `${styles.headerNavLink}`
+                }
               >
                 Products
               </NavLink>
@@ -32,10 +37,11 @@ const SharedLayout = () => {
             <li>
               <NavLink
                 to="/about"
-                className={styles.headerNavLink}
-                style={({ isActive }) => ({
-                  color: isActive ? "red" : "green",
-                })}
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles.active} ${styles.headerNavLink}`
+                    : `${styles.headerNavLink}`
+                }
               >
                 About
               </NavLink>

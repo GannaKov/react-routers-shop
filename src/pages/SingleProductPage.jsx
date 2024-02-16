@@ -27,9 +27,8 @@ const SingleProductPage = () => {
       .finally(() => setLoading(false));
   }, [id]);
 
-  const { title, images, price, description, rating, brand, category } =
-    product;
-  console.log("category", category);
+  const { title, images, price, description, rating, brand } = product;
+
   return (
     <div>
       <button>

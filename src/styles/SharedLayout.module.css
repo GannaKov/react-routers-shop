@@ -11,11 +11,17 @@
 }
 .headerNavLink {
   font-size: 1.3rem;
-  color: green;
+  color: black;
 }
 .headerNavLink:is(:hover, :focus) {
   text-decoration: underline;
+  text-decoration-thickness: 0.2rem;
 }
-/* .headerNavLink.active {
-  color: red;
-} */
+.headerNavLink.active {
+  text-decoration: underline;
+  text-decoration-thickness: 0.1rem;
+}
+.headerNavLink.active:is(:hover, :focus) {
+  text-decoration: underline;
+  text-decoration-thickness: 0.2rem;
+}

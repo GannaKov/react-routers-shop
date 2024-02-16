@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { getByCategory } from "../services/requests";
 import ProductsList from "../components/ProductsList";
 import Spinner from "../components/Spinner";
@@ -17,14 +17,23 @@ const TabsComponent = ({ categories, categoryId }) => {
   const [fetched, setFetched] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const path = useLocation().pathname;
+
   useEffect(() => {
     setValue(categoryId);
   }, [categoryId]);
 
   useEffect(() => {
+    if (categories.length > 0) {
+      if (path === "/products") {
+        navigate(`/products/${categories[categoryId]}`);
+        console.log("kuku");
+      }
+    }
+
     setFetched(true);
     const category = categories[value];
-    // navigate(`/products/${category}`);
+
     setLoading(true);
     getByCategory(category)
       .then((res) => {

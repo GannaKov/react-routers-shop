@@ -42,8 +42,6 @@ const ProductsPage = () => {
   if (category && categories.length > 0) {
     categoryId = categories.indexOf(category);
   }
-  // setValue(categoryId);
-  // idCategory = tabsTitlesQ.indexOf(categName);
 
   // useEffect(() => {
   //   setFetched(true);
