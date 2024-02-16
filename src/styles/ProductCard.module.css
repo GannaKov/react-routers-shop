@@ -1,5 +1,4 @@
 .cardWrp {
-  border: 1px solid grey;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -13,7 +12,10 @@
 }
 .cardBottom {
   padding: 20px 24px;
-  border-top: 1px black solid;
+  border-top: 1px rgb(213, 210, 210) solid;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 0px 4px rgba(0, 0, 0, 0.06),
+    0px 0px 6px rgba(0, 0, 0, 0.16);
+  /* box-shadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.75); */
 
   /* flex-grow: 1; */
 }
